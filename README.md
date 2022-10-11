@@ -1,10 +1,13 @@
-# JoinUs
-网络协会招新网站
-![image](https://user-images.githubusercontent.com/76742505/195139027-933061c4-f5c0-432d-b624-2e4171e27eaa.png)
+# JoinUs 网络协会招新网站
 
+![image](https://user-images.githubusercontent.com/76742505/195139027-933061c4-f5c0-432d-b624-2e4171e27eaa.png)
+\
+前端技术
+`html + css + js + jqurey`
+\
 后端技术
 \
-gin + gorm
+`go + gin + gorm`
 
 食用指南
 - 打开`configs/cnf.ini`配置文件进行配置
