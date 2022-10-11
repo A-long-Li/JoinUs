@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../static/ResourceFile/favicon.ico" rel="shortcut icon">
+    <link href="../static/ResourceFile/favicon.ico" rel="icon">
+    <link href="../static/ResourceFile/favicon16x16.png" rel="icon " sizes="16x16">
+    <link href="../static/ResourceFile/favicon32x32.png" rel="icon " sizes="32x32">
+    <link href="../static/ResourceFile/android-chrome-192x192.png" rel="icon" sizes="192x192">
+    <link href="../static/ResourceFile/android-chrome-512x512.png" rel="icon" sizes="512x512">
+    <link href="../static/ResourceFile/touch-icon-iphone.png" rel="apple-touch-icon">
+    <link href="../static/ResourceFile/touch-icon-ipad.png" rel="apple-touch-icon" sizes="72x72">
+    <link href="../static/ResourceFile/touch-icon-iphone-retina.png" rel="apple-touch-icon" sizes="114x114">
+    <link href="../static/ResourceFile/touch-icon-ipad-retina.png" rel="apple-touch-icon" sizes="144x144">
+    <!--    <link href="https://cdn.bootcss.com/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">-->
+    <!--	<link rel="stylesheet" type="text/css" href="../static/CSS/animate.min.css" />-->
+    <!--	<link rel='stylesheet prefetch' href='http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css'>-->
+    <style>
+        .loading {
+            width: 100%;
+            /*width: 100vw;*/
+            height: 100%;
+            /*height: 100vh;*/
+            position: fixed;
+            top: 0;
+            right: 0;
+            left: 0;
+            background-color: #ffffff;
+            background-position: center 100px;
+            background-repeat: no-repeat;
+            background-size: 400px;
+            z-index: 9999;
+            background-image: url(../static/ResourceFile/loader1.gif);
+        }
+
+        /* * {
+            outline: dashed aqua;
+        } */
+    </style>
+    <link rel="stylesheet" href="../static/CSS/bootstrap/css/bootstrap.min.css">
+    <title>网络协会</title>
+    <link rel="stylesheet" type="text/css" href="../static/CSS/newFE.css">
+    <link rel="stylesheet" href="../static/CSS/general.css">
+    <link rel="stylesheet" href="../static/CSS/home.css">
+    <link rel="stylesheet" href="../static/CSS/headTable.css">
+</head>
+
+<body>
+<div class="table">
+    <div id="headTable">
+        <div id="backButton" class="ContentMiddle">
+            <a href="http://justsit.edu.cn/" target="_blank" class="ContentMiddle">
+                <div id="fix">
+                    <img src="../static/favicon/logo.png" alt="江苏科技大学苏州理工学院" srcset="">
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
+
+<div id="big">
+    <div id="hovertreecontainer">
+        <div>
+            <h1 id="h1">JUST-NC</h1>
+            <p id="fake">江苏科技大学(张家港)<br>苏州理工学院</p>
+            <h1 id="h2">网络协会欢迎您</h1>
+            <a href="login-1.html" class="hvr-bounce-to-right leftbutton">报名</a>
+            <div class="cont">
+                <div class="chevron"></div>
+                <div class="chevron"></div>
+                <div class="chevron"></div>
+            </div>
+        </div>
+    </div>
+    <canvas id="canvas"></canvas>
+</div>
+<script>
+    var fake = document.getElementById('fake');
+    var timed = setInterval(function () {
+        fake.style.opacity = '1';
+    }, 2000);
+</script>
+
+<h3>网络协会介绍</h3>
+<div class="container" id="block_1">
+    <div class="cow">
+        <div class="image col-xs-12 col-sm-4 col-sm-offset-1 col-md-4 col-md-offset-1 col-lg-3 col-lg-offset-1">
+            <img src="#" alt="网络协会">
+        </div>
+        <div class="page col-xs-12 col-sm-6 col-sm-offset-0 col-md-6 col-md-offset-0 col-md-7 col-lg-offset-0">
+            <h4><strong>网络协会的创立</strong></h4>
+            <p>网络协会是江苏科技大学（张家港校区）及苏州理工学院于 2007 年创立的一个以计算机为主要方向的协会，位于张家港校区河西教学区 H 楼，拥有舒适宽敞整洁的学习环境。
+            </p>
+            <h4><strong>网络协会的情况</strong> </h4>
+            <p>网络协会有完备健全的培养方案，以“软件with硬件”的学习为切入点，通过pair、任务卡、项目、技术交流会议等各种方式来培养协会成员的学习习惯、学习兴趣、学习热情，成立 16 年以来向全国各地各类相关公司企业输送了几百名人才。
+            </p>
+            <h4><strong>网络协会的学习方法</strong> </h4>
+            <p>在平日的学习里，我们追求更丰富有趣的学习方法，不定期的pair、checklist任务卡、包括但不限于知识的分享活动以及showcase模拟等形式，在促进提升我们代码水平的同时也提升了我们的综合能力，快乐学习，编程也可以变得很有趣~
+            </p>
+        </div>
+    </div>
+</div>
+<div class="container" id="block_2">
+    <h4>小组介绍</h4>
+    <div class="cow" id="all_card">
+        <div class="card col-xs-6 col-sm-5 col-sm-offset-1 col-md-3 col-md-offset-0 col-lg-2 col-lg-offset-2">
+            <div>
+                <div class="img">
+                    <img src="../static/favicon/软件组.png" alt="软件组">
+                </div>
+                <p><a href="#soft_group"> 软件组</a></p>
+            </div>
+        </div>
+        <div class="card col-xs-6 col-sm-5 col-sm-offset-0 col-md-3 col-md-offset-0 col-lg-2 col-lg-offset-0">
+            <div >
+                <div class="img"  >
+                    <img src="../static/favicon/硬件组.png" alt="硬件组" href="#hardware_group">
+                </div>
+                <p>
+                    <a href="#hardware_group" >
+                        硬件组
+                    </a>
+                </p>
+            </div>
+        </div>
+        <div class="card col-xs-6 col-sm-5 col-sm-offset-1 col-md-3 col-md-offset-0 col-lg-2 col-lg-offset-0">
+            <div>
+                <div class="img">
+                    <img src="../static/favicon/网络组.png" alt="网络组">
+                </div>
+                <p>
+                    <a href="#net_group">
+                        网络组
+                    </a>
+                </p>
+            </div>
+        </div>
+        <div class="card col-xs-6 col-sm-5 col-sm-offset-0 col-md-3 col-md-offset-0 col-lg-2 col-lg-offset-0">
+            <div>
+                <div class="img">
+                    <img src="../static/favicon/会议组.png" alt="会议组">
+                </div>
+                <p>
+                    <a href="#meeting_group">
+                        会议组
+                    </a>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="web" id="web">
+    <div class="head">
+        <h2 id="soft_group">
+            关于软件组
+        </h2>
+        <p>
+            XXX
+        </p>
+    </div>
+    <div class="container">
+        <div class="box1">
+            <div class="htm">
+                <div class="htm-pic" id="left">
+                    <img src="../static/ResourceFile/htm.jpg" alt="">
+                    <div class="hidden1" id="left1">
+                        <div class="white-border"></div>
+                        <p>
+                            XXX
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+            <div class="css">
+                <div class="htm-pic" id="right">
+                    <img src="../static/ResourceFile/css.jpg" alt="">
+                    <div class="hidden1" id="right1">
+                        <div class="white-border"></div>
+                        <p>
+                            XXX
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- <div class="box2">
+            <div class="js">
+                <div class="htm-pic" id="left">
+                    <img src="../static/ResourceFile/js.jpg" alt="JS">
+                    <div class="hidden1" id="left1">
+                        <div class="white-border"></div>
+                        <p>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;JavaScript（简称“JS”）
+                            是一种具有函数优先的轻量级，解释型或即时编译型的高级编程语言。虽然它是作为开发Web页面的脚本语言而出名的，但是它也被用到了很多非浏览器环境中，JavaScript
+                            基于原型编程、多范式的动态脚本语言，并且支持面向对象、命令式和声明式（如函数式编程）风格。JavaScript的标准是ECMAScript
+                            。2015年6月17日，ECMA国际组织发布了ECMAScript的第六版，通常被称为ECMAScript
+                            6 或者ES6。
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="es6">
+                <div class="htm-pic" id="right">
+                    <img src="../static/ResourceFile/es6.jpg" alt="ES6">
+                    <div class="hidden1" id="right1">
+                        <div class="white-border"></div>
+                        <p>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ECMAScript
+                            6（简称ES6）是于2015年6月正式发布的JavaScript语言的标准，正式名为ECMAScript
+                            2015（ES2015）。它的目标是使得JavaScript语言可以用来编写复杂的大型应用程序，成为企业级开发语言 [1] 。
+                            另外，一些情况下ES6也泛指ES2015及之后的新增特性，虽然之后的版本应当称为ES7、ES8等。新增let命令、const命令、Class命令、import命令、解构赋值、字符处理、字符串扩展、遍历器、正则表达式等等。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="box3">
+            <div class="react">
+                <div class="htm-pic" id="left">
+                    <img src="../static/ResourceFile/react.jpg" alt="React">
+                    <div class="hidden1" id="left1">
+                        <div class="white-border"></div>
+                        <p>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;React 是一个用于构建用户界面的 JAVASCRIPT
+                            库,主要用于构建UI，很多人认为 React 是 MVC 中的 V（视图），它起源于 Facebook 的内部项目，用来架设 Instagram 的网站，并于 2013 年 5
+                            月开源，拥有较高的性能，代码逻辑非常简单，越来越多的人已开始关注和使用它。React主要用于构建UI。你可以在React里传递多种类型的参数，如声明代码，帮助你渲染出UI、也可以是静态的HTML
+                            DOM元素、也可以传递动态变量、甚至是可交互的应用组件。
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+            <div class="vue">
+                <div class="htm-pic" id="right">
+                    <img src="../static/ResourceFile/vue.png" alt="Vue">
+                    <div class="hidden1" id="right1">
+                        <div class="white-border"></div>
+                        <p>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Vue.js是一套构建用户界面的渐进式框架。与其他重量级框架不同的是，Vue
+                            采用自底向上增量开发的设计。Vue 的核心库只关注视图层，并且非常容易学习，非常容易与其它库或已有项目整合。另一方面，Vue
+                            完全有能力驱动采用单文件组件和Vue生态系统支持的库开发的复杂单页应用。Vue.js
+                            自身不是一个全能框架——它只聚焦于视图层。因此它非常容易学习，非常容易与其它库或已有项目整合。Vue.js 的目标是通过尽可能简单的
+                            API 实现响应的数据绑定和组合的视图组件。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>-->
+    </div>
+</div>
+
+<div class="web" id="server">
+    <div class="head">
+        <h2 id="hardware_group">
+            关于硬件组
+        </h2>
+        <p>
+            XXX
+        </p>
+
+    </div>
+    <div class="container">
+        <div class="box1">
+            <div class="htm">
+                <div class="htm-pic" id="left">
+                    <img src="../static/ResourceFile/c.png" alt="">
+                    <div class="hidden1" id="left1">
+                        <div class="white-border"></div>
+                        <p>
+                            XXX
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+            <div class="css">
+                <div class="htm-pic" id="right">
+                    <img src="../static/ResourceFile/JAVA.png" alt="">
+                    <div class="hidden1" id="right1">
+                        <div class="white-border"></div>
+                        <p>
+                            XXX
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- <div class="box2">
+            <div class="js">
+                <div class="htm-pic" id="left">
+                    <img src="../static/ResourceFile/python.png" alt="Python">
+                    <div class="hidden1" id="left1">
+                        <div class="white-border"></div>
+                        <p>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Python:是一种跨平台的计算机程序设计语言。
+                            是一个高层次的结合了解释性、编译性、互动性和面向对象的脚本语言。最初被设计用于编写自动化脚本(shell)，随着版本的不断更新和语言新功能的添加，越多被用于独立的、大型项目的开发。其应用领域包括Web和Internet开发、科学计算和统计、人工智能、桌面界面开发、软件开发、后端开发、网络爬虫等等。
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="es6">
+                <div class="htm-pic" id="right">
+                    <img src="../static/ResourceFile/SQL.png" alt="SQL">
+                    <div class="hidden1" id="right1">
+                        <div class="white-border"></div>
+                        <p>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;数据库是存放数据的仓库。它的存储空间很大，可以存放百万条、千万条、上亿条数据。但是数据库并不是随意地将数据进行存放，是有一定的规则的，否则查询的效率会很低。当今世界是一个充满着数据的互联网世界，充斥着大量的数据。即这个互联网世界就是数据世界。数据的来源有很多，比如出行记录、消费记录、浏览的网页、发送的消息等等。除了文本类型的数据，图像、音乐、声音都是数据。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>-->
+        <!-- <div class="box3">
+            <div class="react">
+                <div class="htm-pic" id="left">
+                    <img src="../static/ResourceFile/web8.png" alt="Web8">
+                    <div class="hidden1" id="left1">
+                        <div class="white-border"></div>
+                        <p>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Web基础:它是一种基于超文本和HTTP的、全球性的、动态交互的、跨平台的分布式图形信息系统。是建立在Internet上的一种网络服务，为浏览者在Internet上查找和浏览信息提供了图形化的、易于访问的直观界面，其中的文档及超级链接将Internet上的信息节点组织成一个互为关联的网状结构。前端设计一般可以理解为网站的视觉设计，前端开发则是网站的前台代码实现，包括基本的HTML和CSS以及JavaScript/ajax，最新的高级版本HTML5、CSS3，以及SVG等。
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+            <div class="vue">
+                <div class="htm-pic" id="right">
+                    <img src="../static/ResourceFile/Algorithm3.png" alt="Algorithm3">
+                    <div class="hidden1" id="right1">
+                        <div class="white-border"></div>
+                        <p>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;算法（Algorithm）是指解题方案的准确而完整的描述，是一系列解决问题的清晰指令，算法代表着用系统的方法描述解决问题的策略机制。也就是说，能够对一定规范的输入，在有限时间内获得所要求的输出。如果一个算法有缺陷，或不适合于某个问题，执行这个算法将不会解决这个问题。不同的算法可能用不同的时间、空间或效率来完成同样的任务。一个算法的优劣可以用空间复杂度与时间复杂度来衡量。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>-->
+    </div>
+</div>
+
+<div class="web" id="network">
+    <div class="head">
+        <h2 id="#net_group">
+            关于网络组
+        </h2>
+        <p>
+            XXX
+        </p>
+
+    </div>
+    <div class="container">
+        <div class="box1">
+            <div class="htm">
+                <div class="htm-pic" id="left">
+                    <img src="../static/ResourceFile/htm.jpg" alt="">
+                    <div class="hidden1" id="left1">
+                        <div class="white-border"></div>
+                        <p>
+                            XXX
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+            <div class="css">
+                <div class="htm-pic" id="right">
+                    <img src="../static/ResourceFile/css.jpg" alt="">
+                    <div class="hidden1" id="right1">
+                        <div class="white-border"></div>
+                        <p>
+                            XXX
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="web" id="meeting">
+    <div class="head">
+        <h2 id="meeting_group">
+            关于会议组
+        </h2>
+        <p>
+            XXX
+        </p>
+
+    </div>
+    <div class="container">
+        <div class="box1">
+            <div class="htm">
+                <div class="htm-pic" id="left">
+                    <img src="../static/ResourceFile/htm.jpg" alt="">
+                    <div class="hidden1" id="left1">
+                        <div class="white-border"></div>
+                        <p>
+                            XXX
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+            <div class="css">
+                <div class="htm-pic" id="right">
+                    <img src="../static/ResourceFile/css.jpg" alt="">
+                    <div class="hidden1" id="right1">
+                        <div class="white-border"></div>
+                        <p>
+                            XXX
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" src="../static/JS/cavan.js"></script>
+<script type="text/javascript" src="../static/JS/cavans.js"></script>
+</body>
+</html>
