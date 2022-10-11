@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>提交</title>
+    <script src="../static/JS/jquery-3.5.1/jquery-3.5.1/jquery-3.5.1.js"></script>
+    <link rel="stylesheet" href="../static/CSS/headTable.css">
+    <link rel="stylesheet" href="../static/CSS/login.css">
+</head>
+<body>
+<div class="table" id="exceptIndex">
+    <div id="headTable">
+        <div id="backButton">
+            <a href="index-1.html">
+                <div class="actionButton">
+                    <svg t="1603178516026" viewBox="0 0 1024 1024" version="1.1"
+                         xmlns="http://www.w3.org/2000/svg" p-id="828" width="40" height="40">
+                        <path
+                                d="M677.391515 873.916768c-7.86101 0-15.618586-2.999596-21.617778-8.895354L324.473535 533.721212c-11.998384-11.894949-11.998384-31.340606 0-43.235555L655.670303 159.288889c5.999192-5.999192 13.756768-8.895354 21.617778-8.895354 7.757576 0 15.618586 2.999596 21.617778 8.895354 11.894949 11.894949 11.894949 31.237172 0 43.235555L389.223434 512.103434 698.905859 821.785859c11.894949 11.998384 11.894949 31.340606 0 43.235555-5.895758 5.895758-13.756768 8.895354-21.514344 8.895354z m0 0"
+                                p-id="829" fill="#f61947"></path>
+                    </svg>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
+<div class="Login">
+    <div class="img">
+        <img src="#" alt="">
+        <p>江苏科技大学(张家港校区)、苏州理工学院网络协会</p>
+    </div>
+    <div class="posttitle">
+        <p>2022年网络协会在线报名表</p>
+    </div>
+    <div>
+        <form action="#" method="post"> <!--onsubmit="return false;"-->
+            <div class="spaceBetween container">
+                <div class="label">
+                    <label for="name">姓名</label>
+                    <input type="text" name="name" oninput="setCustomValidity('')" pattern="[^\x00-\xff]{2,}"
+                           oninvalid="setCustomValidity('请输入真实姓名哦')" id="name" required="required" autocomplete="off">
+                    <!-- autocomplete 属性规定输入字段是否应该启用自动完成功能。自动完成允许浏览器预测对字段的输入。当用户在字段开始键入时，
+                        浏览器基于之前键入过的值，应该显示出在字段中填写的选项。on	默认。规定启用自动完成功能。off	规定禁用自动完成功能。 -->
+                    <div class="showInformation">请输入你的真实姓名哦</div>
+                </div>
+
+                <div class="label">
+                    <label for="initials">学院</label>
+                    <!-- 第一个下拉框内容 -->
+                    <select id="initials" onchange="Change_second_selectwords();" required="required">
+                        <option value="empty">--请选择学院名称--</option>
+                        <option value="D">电信院</option>
+                        <option value="S">商学院</option>
+                        <option value="J">机动院</option>
+                        <option value="Y">冶材院</option>
+                        <option value="C">船建院</option>
+                        <option value="G">公教院</option>
+                    </select>
+                </div>
+
+                <div class="label">
+                    <label for="top_domains">专业</label>
+                    <select id="top_domains" required="required" name="top_domains">
+                        <option value="empty">--请选择专业名称--</option>
+                    </select>
+                    <script>
+                        var first_keywords = {};
+                        //定义每个字母对应的第二个下拉框
+                        first_keywords['D'] = ['--请选择专业名称--', '计算机科学与技术', '软件工程', '电子信息工程', '通信工程', '电气工程及其自动化'];
+                        first_keywords['S'] = ['--请选择专业名称--', '信息管理与信息系统', '物流管理', '财务管理', '工商管理', '旅游管理', '国际经济与贸易'];
+                        first_keywords['J'] = ['--请选择专业名称--', '机械设计制造及其自动化', '机械电子工程', '能源与动力工程', '机器人工程'];
+                        first_keywords['Y'] = ['--请选择专业名称--', '材料成型及控制工程', '新能源材料与器件', '焊接技术与工程'];
+                        first_keywords['C'] = ['--请选择专业名称--', '船舶与海洋工程', '土木工程', '工程管理', '工程造价'];
+                        first_keywords['G'] = ['--请选择专业名称--', '英语', '社会体育指导与管理'];
+                        function Change_second_selectwords() {
+                            //根据id找到两个下拉框对象
+                            var target1 = document.getElementById("initials");
+                            var target2 = document.getElementById("top_domains");
+                            //得到第一个下拉框的内容
+                            var selected_initial = target1.options[target1.selectedIndex].value;
+                            //清空第二个下拉框
+                            while (target2.options.length) {
+                                target2.remove(0);
+                            }
+                            //根据第一个下拉框的内容找到对应的列表
+                            var initial_list = first_keywords[selected_initial];
+                            if (initial_list) {
+                                for (var i = 0; i < initial_list.length; i++) {
+                                    var item = new Option(initial_list[i], i);
+                                    //根据第一个下拉框的内容找到对应的列表
+                                    target2.options.add(item);
+                                }
+                            }
+                        }
+                    </script>
+                    </select>
+                </div>
+
+                <div class="label">
+                    <label for="userNumber">学号</label>
+                    <input type="text" name="userNumber" oninput="setCustomValidity('')" pattern="[0-9]{12}"
+                           id="userNumber" oninvalid="setCustomValidity('学号应为十二位')" required="required" autocomplete="off">
+                    <div class="showInformation">请输入你正确的学号哦</div>
+                </div>
+
+                <div class="label">
+                    <label for="QQ">QQ号码</label>
+                    <input type="text" name="QQ" oninput="setCustomValidity('')" required="required" autocomplete="off"
+                           oninvalid="setCustomValidity('请输入你的正确的QQ号码哦')" pattern="[0-9]{5,12}" id="QQ">
+                    <div class="showInformation">请输入你正确的QQ号码哦</div>
+                </div>
+
+                <div class="label">
+                    <label for="purpose1">意向</label>
+                    <select id="purpose1" required="required">
+                        <div class="showInformation">请输入你选择你想加入的组哦</div>
+                        <option selected="selected">--请选择你想加入的组哦--</option>
+                        <option name="RJ">软件组</option>
+                        <option name="YJ">硬件组</option>
+                        <option name="WL">网络组</option>
+                        <option name="HY">会议组</option>
+                    </select>
+                </div>
+                <div class="label">
+                    <label for="intention">意向2</label>
+                    <select id="intention" required="required">
+                        <div class="showInformation">请输入你选择你想加入的组哦</div>
+                        <option selected="selected">--请选择你想加入的组哦--</option>
+                        <option name="RJ">软件组</option>
+                        <option name="YJ">硬件组</option>
+                        <option name="WL">网络组</option>
+                        <option name="HY">会议组</option>
+                        <option name="WU">无</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <div class="label">
+                    <label for="submitButton"></label>
+                    <div class="animationButton">
+                        <input type="button" class="actionButton" name="submitButton" onclick="check()" id="submitButton" value="提交">
+                    </div>
+                </div>
+            </div>
+
+        </form>
+    </div>
+</div>
+<script>
+    function check(){
+        if($('#initials option:selected').val() === "empty" || $('#purpose1 option:selected').val() === "--请选择你想加入的组哦--"
+            || $('#top_domains option:selected').val() === 0
+            || $("input[name='userNumber']").val().length!==12 )
+        {
+            alert("填写信息有误，请检查");
+        }
+        else{
+            postAjax();
+        }
+    }
+    function postAjax(){
+        let params = 'name=' + $("input[name='name']").val() + '&initials=' + $('#initials option:selected').text()
+            + '&top_domains=' + $('#top_domains option:selected').text() + '&userNumber=' + $("input[name='userNumber']").val()
+            + '&QQ=' + $("input[name='QQ']").val() + '&purpose1=' + $('#purpose1 option:selected').text()
+            + '&purpose2=' + $('#intention option:selected').text();
+        $.ajax({
+            url: "./register/add",
+            cache: false,
+            async:true,
+            data: params,
+            type: "POST" ,
+            contentType:'application/x-www-form-urlencoded; charset=UTF-8',
+            success: function (data) {
+                alert(data.msg)
+            },
+            error:function (XMLHttpRequest, textStatus, errorThrown) {
+                if(XMLHttpRequest.status===403){
+                    console.log("您没有权限访问，请联系管理员！")
+                }else if(XMLHttpRequest.status===502){
+                    console.log("服务器内部错误！")
+                }else{
+                    console.log("服务器未知错误！")
+                }
+            }
+        });
+
+    }
+</script>
+<script type="text/javascript " src="../static/JS/login_Node.js"></script>
+<script type="text/javascript" src="../static/JS/login_check.js"></script>
+<script type="text/javascript" src="../static/JS/headTab.js"></script>
+</body>
+</html>
