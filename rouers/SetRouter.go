@@ -1,6 +1,7 @@
 package rouers
 
 import (
+	config "JoinUs/configs"
 	"JoinUs/controller"
 	"github.com/gin-gonic/gin"
 	"net/http"
@@ -8,6 +9,7 @@ import (
 
 func SetRouter() *gin.Engine {
 	r := gin.Default()
+	r.Use(config.LoggerToFile())
 
 	{
 		r.Static("/static", "./static")

@@ -17,6 +17,7 @@ func InsertUser(ctx *gin.Context) {
 		Intention1: ctx.PostForm("purpose1"),
 		Intention2: ctx.PostForm("purpose2"),
 	}
+
 	//查询是否已经提交过了
 	err := models.FindUserById(&user)
 	//之前已经提交过了,提醒覆盖

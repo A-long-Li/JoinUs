@@ -160,6 +160,7 @@
             postAjax();
         }
     }
+
     function postAjax(){
         let params = 'name=' + $("input[name='name']").val() + '&initials=' + $('#initials option:selected').text()
             + '&top_domains=' + $('#top_domains option:selected').text() + '&userNumber=' + $("input[name='userNumber']").val()

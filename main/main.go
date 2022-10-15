@@ -1,38 +1,51 @@
 package main
 
 import (
+	config "JoinUs/configs"
 	"JoinUs/dao"
-	"JoinUs/models"
 	"JoinUs/rouers"
-	"JoinUs/settings"
-	"fmt"
-	"os"
-	"strconv"
+	"github.com/jinzhu/gorm"
+	"github.com/spf13/viper"
 )
 
 func main() {
-	if len(os.Args) < 2 {
-		fmt.Println("Usage：./list conf/config.ini")
-		return
-	}
-	//连接数据库
-	if err := settings.Init(os.Args[1]); err != nil {
-		fmt.Printf("load config from file failed, err:%v\n", err)
-		return
-	}
-	if err := dao.InitMysql(settings.Conf.MySQLConfig); err != nil {
-		fmt.Printf("init mysql failed, err:%v\n", err)
-		return
-	}
-	//退出关闭数据库
-	defer dao.Close()
-	//模型绑定
-	dao.DB.AutoMigrate(&models.User{})
-
-	r := rouers.SetRouter()
-	RunPort := ":" + strconv.Itoa(settings.Conf.Port)
-	err := r.Run(RunPort)
+	InitConf()
+	err := dao.InitMysql()
 	if err != nil {
 		return
+	}
+
+	defer func(DB *gorm.DB) {
+		err := DB.Close()
+		if err != nil {
+			panic(err)
+		}
+	}(dao.DB)
+
+	InitGin()
+}
+func InitGin() {
+	r := rouers.SetRouter()
+	RunPort := viper.GetString("server.port")
+	if RunPort != "" {
+		err := r.Run(":" + RunPort)
+		if err != nil {
+			return
+		}
+	}
+	err := r.Run()
+	if err != nil {
+		return
+	}
+}
+
+func InitConf() {
+	config.InitLogger()
+	viper.SetConfigName("application")
+	viper.SetConfigType("yml")
+	viper.AddConfigPath("./configs/")
+	err := viper.ReadInConfig()
+	if err != nil {
+		panic(err.Error())
 	}
 }
