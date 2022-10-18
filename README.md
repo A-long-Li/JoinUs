@@ -5,9 +5,7 @@
 前端技术
 `html + css + js + jqurey`
 \
-后端技术
-\
-`go + gin + gorm`
+后端技术 `go + gin + gorm + viper`
 
 食用指南
 - ~打开`configs/cnf.ini`配置文件进行配置~
