@@ -28,7 +28,7 @@ func CreateUser(user *User) error {
 	return dao.DB.Create(&user).Error
 }
 
-func FindUserById(user *User) error {
+func FindUserById(user User) error {
 	fmt.Println(dao.DB.First(&user).Value)
 	return dao.DB.First(&user).Error
 }
