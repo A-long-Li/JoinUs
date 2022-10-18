@@ -13,4 +13,4 @@
 - ~在和`configs`同级文件夹下运行以下命令`.\{name}.exe configs/cnf.ini`来运行~
 - `upd on 10.19`
   - 使用`viper`作为配置管理工具 直接在`application.yml`里面填入自己的配置即可
-  - 直接运行`main.go`或打包成`exe`文件都可
+  - 直接运行`main.go`或打包成`exe`文件运行都可
