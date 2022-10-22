@@ -43,7 +43,7 @@ func InitConf() {
 	config.InitLogger()
 	viper.SetConfigName("application")
 	viper.SetConfigType("yml")
-	viper.AddConfigPath("../configs/")
+	viper.AddConfigPath("./configs/")
 	err := viper.ReadInConfig()
 	if err != nil {
 		panic(err.Error())
