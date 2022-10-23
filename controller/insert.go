@@ -2,7 +2,6 @@ package controller
 
 import (
 	"JoinUs/models"
-	"fmt"
 	"github.com/gin-gonic/gin"
 	"net/http"
 )
@@ -22,7 +21,6 @@ func InsertUser(ctx *gin.Context) {
 	//查询是否已经提交过了
 	err := models.FindUserById(user)
 	//之前已经提交过了,提醒覆盖
-	fmt.Println(user)
 	if err == nil {
 		ctx.JSON(http.StatusOK, gin.H{
 			"code": 200,

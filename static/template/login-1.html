@@ -8,6 +8,7 @@
     <script src="../static/JS/jquery-3.5.1/jquery-3.5.1/jquery-3.5.1.js"></script>
     <link rel="stylesheet" href="../static/CSS/headTable.css">
     <link rel="stylesheet" href="../static/CSS/login.css">
+    <link rel="stylesheet" href="../static/JS/layui/css/layui.css">
 </head>
 <body>
 <div class="table" id="exceptIndex">
@@ -149,48 +150,53 @@
     </div>
 </div>
 <script>
-    function check(){
-        if($('#initials option:selected').val() === "empty" || $('#purpose1 option:selected').val() === "--请选择你想加入的组哦--"
-            || $('#top_domains option:selected').val() === 0
-            || $("input[name='userNumber']").val().length!==12 )
-        {
-            alert("填写信息有误，请检查");
-        }
-        else{
+    function check() {
+        if ($('#initials option:selected').val() == "empty"
+            || $('#purpose1 option:selected').val() == "--请选择你想加入的组哦--"
+            || $('#top_domains option:selected').val() == 0
+            || $("input[name='userNumber']").val().length != 12
+            || $("input[name='name']").val() == ""
+            || $("input[name='QQ']").val() == "") {
+            layer.msg("表格填写有误，请仔细检查!", {icon: 0})
+        } else {
             postAjax();
         }
     }
 
-    function postAjax(){
+    function postAjax() {
         let params = 'name=' + $("input[name='name']").val() + '&initials=' + $('#initials option:selected').text()
             + '&top_domains=' + $('#top_domains option:selected').text() + '&userNumber=' + $("input[name='userNumber']").val()
             + '&QQ=' + $("input[name='QQ']").val() + '&purpose1=' + $('#purpose1 option:selected').text()
             + '&purpose2=' + $('#intention option:selected').text();
-        $.ajax({
-            url: "./register/add",
-            cache: false,
-            async:true,
-            data: params,
-            type: "POST" ,
-            contentType:'application/x-www-form-urlencoded; charset=UTF-8',
-            success: function (data) {
-                alert(data.msg)
-            },
-            error:function (XMLHttpRequest, textStatus, errorThrown) {
-                if(XMLHttpRequest.status===403){
-                    console.log("您没有权限访问，请联系管理员！")
-                }else if(XMLHttpRequest.status===502){
-                    console.log("服务器内部错误！")
-                }else{
-                    console.log("服务器未知错误！")
-                }
-            }
+        $.post('./register/add', params, res => {
+            layer.msg(res.msg, {icon: 1})
         });
+        // $.ajax({
+        //     url: "./register/add",
+        //     cache: false,
+        //     async:true,
+        //     data: params,
+        //     type: "POST" ,
+        //     contentType:'application/x-www-form-urlencoded; charset=UTF-8',
+        //     success: function (data) {
+        //         layer.msg(data.msg,{icon:1})
+        //     },
+        //     error:function (XMLHttpRequest, textStatus, errorThrown) {
+        //         if(XMLHttpRequest.status===403){
+        //             console.log("您没有权限访问，请联系管理员！")
+        //         }else if(XMLHttpRequest.status===502){
+        //             console.log("服务器内部错误！")
+        //         }else{
+        //             console.log("服务器未知错误！")
+        //         }
+        //     }
+        // });
 
     }
 </script>
 <script type="text/javascript " src="../static/JS/login_Node.js"></script>
 <script type="text/javascript" src="../static/JS/login_check.js"></script>
 <script type="text/javascript" src="../static/JS/headTab.js"></script>
+<script type="text/javascript" src="../static/JS/layui/layui.js"></script>
 </body>
 </html>

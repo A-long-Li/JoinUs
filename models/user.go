@@ -2,7 +2,6 @@ package models
 
 import (
 	"JoinUs/dao"
-	"fmt"
 )
 
 type User struct {
@@ -29,7 +28,6 @@ func CreateUser(user *User) error {
 }
 
 func FindUserById(user User) error {
-	fmt.Println(dao.DB.First(&user).Value)
 	return dao.DB.First(&user).Error
 }
 func UpdaterUser(user *User) error {
