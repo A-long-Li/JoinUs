@@ -169,7 +169,9 @@
             + '&QQ=' + $("input[name='QQ']").val() + '&purpose1=' + $('#purpose1 option:selected').text()
             + '&purpose2=' + $('#intention option:selected').text();
         $.post('./register/add', params, res => {
-            layer.msg(res.msg, {icon: 1})
+            if (res.code == 200) {
+                layer.msg(res.msg, {icon: 1})
+            } else layer.msg(res.msg, {icon: 2})
         });
         // $.ajax({
         //     url: "./register/add",

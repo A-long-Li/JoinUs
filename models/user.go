@@ -33,3 +33,9 @@ func FindUserById(user User) error {
 func UpdaterUser(user *User) error {
 	return dao.DB.Save(&user).Error
 }
+
+//func (u User )check() bool {
+//	if  u.Name == "" || u.ID == ""{
+//
+//	}
+//}

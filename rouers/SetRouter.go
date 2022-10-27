@@ -3,12 +3,14 @@ package rouers
 import (
 	config "JoinUs/configs"
 	"JoinUs/controller"
+	"github.com/gin-contrib/pprof"
 	"github.com/gin-gonic/gin"
 	"net/http"
 )
 
 func SetRouter() *gin.Engine {
 	r := gin.Default()
+	pprof.Register(r)
 	r.Use(config.LoggerToFile())
 
 	{

@@ -17,7 +17,13 @@ func InsertUser(ctx *gin.Context) {
 		Intention1: ctx.PostForm("purpose1"),
 		Intention2: ctx.PostForm("purpose2"),
 	}
-
+	if len(user.Name) == 0 {
+		ctx.JSON(http.StatusBadRequest, gin.H{
+			"code": 114,
+			"msg":  "填写信息有误，请检查！",
+		})
+		return
+	}
 	//查询是否已经提交过了
 	err := models.FindUserById(user)
 	//之前已经提交过了,提醒覆盖
