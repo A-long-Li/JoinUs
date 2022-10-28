@@ -4,6 +4,8 @@ import (
 	config "JoinUs/configs"
 	"JoinUs/dao"
 	"JoinUs/rouers"
+	"fmt"
+	"github.com/fsnotify/fsnotify"
 	"github.com/jinzhu/gorm"
 	"github.com/spf13/viper"
 )
@@ -23,6 +25,11 @@ func main() {
 	}(dao.DB)
 
 	InitGin()
+	//热加载配置文件
+	viper.WatchConfig()
+	viper.OnConfigChange(func(e fsnotify.Event) {
+		fmt.Println("Config file changed:", e.Name)
+	})
 }
 func InitGin() {
 	r := rouers.SetRouter()
